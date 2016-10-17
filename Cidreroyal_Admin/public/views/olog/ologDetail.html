@@ -1,0 +1,41 @@
+<div ui-view="" class="ng-scope">
+  <div class="row ng-scope">
+    <div class="col-lg-12">
+      <div class="page-header">
+        <h1>
+          <span class="ng-binding ng-scope">操作日志详情</span>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="row ng-scope" id="edit-view">
+    <form
+      class="col-lg-12 form-horizontal ng-pristine ng-valid ng-valid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength">
+
+      <blockquote>
+        请耐心等待开关文件生成...
+        <br/>
+        目前状态:
+        <label ng-if="logIng" class="text-info">进行中!</label>
+        <label ng-if="logSuccess" class="text-success">已完成!</label>
+        <label ng-if="logError" class="text-danger">已失败!</label>
+      </blockquote>
+
+      <div ng-init="initOLog()">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            {{logfile}}
+          </div>
+          <div class="panel-body">
+            <ul>
+              <li ng-repeat="line in logInfo track by $index">
+                {{line}}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
