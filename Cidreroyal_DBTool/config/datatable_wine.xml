@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table name="Wine" comment="酒类型信息表">
+    <column name="id" field="id" type="long" length="20" comment="唯一ID"
+            value="0" allowNull="false" unique="true" iskey="true" autoinc="true"/>
+
+    <column name="name" field="name" type="string" length="50" comment="酒名称"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="content" field="content" type="string" length="50" comment="含量信息"
+            value="" allowNull="true" unique="false"/>
+
+    <column name="desc" field="desc" type="string" length="255" comment="描述"
+            value="" allowNull="true" unique="false"/>
+
+    <column name="img" field="img" type="string" length="100" comment="图片名称"
+            value="" allowNull="true" unique="false"/>
+
+    <column name="norm" field="norm" type="string" length="100" comment="容量规格(多个规格用半角逗号,分隔)"
+            value="" allowNull="true" unique="false"/>
+
+</table>

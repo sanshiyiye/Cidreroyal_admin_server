@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table name="GM_Role" comment="gm用户角色信息" isAdmin="true">
+    <column name="id" field="id" type="long" length="20" comment="唯一ID"
+            value="0" allowNull="false" unique="true" iskey="true" autoinc="true"/>
+    <column name="name" field="name" type="string" length="20" comment="角色名称"
+            value="" allowNull="false" unique="false"/>
+    <column name="menu" field="menu" type="string" length="100" comment="菜单权限"
+            value="" allowNull="false" unique="false"/>
+</table>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table name="GM_Menu" comment="菜单信息" isAdmin="true">
+    <column name="id" field="id" type="long" length="20" comment="唯一ID"
+            value="0" allowNull="false" unique="true" iskey="true" autoinc="true"/>
+    <column name="name" field="name" type="string" length="20" comment="菜单名称"
+            value="" allowNull="false" unique="false"/>
+    <column name="key" field="key" type="string" length="20" comment="菜单key"
+            value="" allowNull="false" unique="false"/>
+    <column name="menu" field="menu" type="int" length="5" comment="菜单层级"
+            value="1" allowNull="false" unique="false"/>
+    <column name="parent" field="parent" type="int" length="5" comment="父菜单id"
+            value="0" allowNull="false" unique="false"/>
+    <column name="isEntity" field="isEntity" type="int" length="5" comment="是否是实体"
+            value="0" allowNull="false" unique="false"/>
+    <column name="link" field="link" type="string" length="255" comment="关联页面"
+            value="" allowNull="false" unique="false"/>
+    <column name="active" field="active" type="string" length="255" comment="激活"
+            value="" allowNull="false" unique="false"/>
+    <column name="icon" field="icon" type="string" length="255" comment="图标"
+            value="" allowNull="false" unique="false"/>
+    <column name="indexNo" field="indexNo" type="int" length="5" comment="排序"
+            value="0" allowNull="false" unique="false"/>
+</table>

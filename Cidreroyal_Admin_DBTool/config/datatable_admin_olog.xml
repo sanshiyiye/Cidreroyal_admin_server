@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table name="GM_Olog" comment="操作日志表" isAdmin="true">
+    <column name="id" field="id" type="long" length="20" comment="唯一ID"
+            value="0" allowNull="false" unique="true" iskey="true" autoinc="true"/>
+
+    <column name="opertype" field="opertype" type="int" length="5" comment="操作类型"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="channelid" field="channelid" type="long" length="20" comment="渠道id"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="pubcode" field="pubcode" type="string" length="30" comment="渠道发布code"
+            value="" allowNull="false" unique="false"/>
+
+    <column name="logfile" field="logfile" type="string" length="100" comment="日志文件名称"
+            value="" allowNull="false" unique="false"/>
+
+    <column name="flag" field="flag" type="int" length="5" comment="标识(0操作中 1成功 2失败)"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="otime" field="otime" type="long" length="13" comment="操作时间"
+            value="0" allowNull="true" unique="false"/>
+
+    <column name="remark" field="remark" type="string" length="255" comment="备注"
+            value="{}" allowNull="true" unique="false"/>
+</table>

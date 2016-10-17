@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table name="Address" comment="用户地址信息表">
+    <column name="id" field="id" type="long" length="20" comment="唯一ID"
+            value="0" allowNull="false" unique="true" iskey="true" autoinc="true"/>
+
+    <column name="userId" field="userId" type="long" length="20" comment="用户Id"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="city" field="city" type="long" length="20" comment="城市id"
+            value="0" allowNull="false" unique="true"/>
+
+    <column name="address" field="address" type="string" length="100" comment="详细地址"
+            value="" allowNull="false" unique="true"/>
+
+    <column name="zip" field="zip" type="int" length="10" comment="邮编"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="receiver" field="receiver" type="string" length="30" comment="收件人名称"
+            value="" allowNull="false" unique="false"/>
+
+    <column name="telephone" field="telephone" type="long" length="20" comment="联系电话"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="default" field="default" type="int" length="5" comment="是否默认(0否,1是)"
+            value="0" allowNull="true" unique="false"/>
+
+    <index name="userId" unique="false"/>
+</table>

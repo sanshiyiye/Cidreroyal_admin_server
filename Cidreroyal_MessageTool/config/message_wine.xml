@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages package="Wine">
+    <!-- 客户端获取酒类信息 -->
+    <message type="CS_GETWINELIST" name="GetWineList" id="10301"
+             comment="获取酒类信息" auth="false">
+    </message>
+
+    <!-- 客户端获取酒类信息返回返回消息 -->
+    <message type="SC_GETWINELIST" name="GetWineListBack" id="10302"
+             comment="获取酒类信息返回" auth="false">
+        <field name="wineList" type="list" comment="酒类列表">
+            <field name="id" type="long" comment="唯一ID"></field>
+            <field name="name" type="string" comment="酒名称"></field>
+            <field name="content" type="string" comment="含量信息"></field>
+            <field name="desc" type="string" comment="描述"></field>
+            <field name="img" type="string" comment="图片名称"></field>
+            <field name="norm" type="string" comment="容量规格(多个规格用半角逗号,分隔)"></field>
+        </field>
+    </message>
+</messages>

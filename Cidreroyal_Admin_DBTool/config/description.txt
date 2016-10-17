@@ -1,0 +1,24 @@
+1.table标签:
+  数据库表信息
+  name:     表名
+  comment:  表的描述
+
+2.column标签:
+  数据库字段信息
+  name:     代码中字段名
+  field:    数据库中实际字段名
+  type:     字段类型,目前:int->integer, long->bigint, string->varchar
+  length:   字段长度
+  comment:  字段描述
+  value:    默认值
+  allowNull:是否可为空,true/false
+  unique:   是否唯一,true/false
+  iskey:    是否是主键,true/false
+  autoinc:  是否自增,true/false
+
+3.index标签:
+  数据库表索引信息
+  name:     索引字段名,多个字段用","分隔
+  unique:   是否唯一,true/false
+
+4.玩家信息表userinfo

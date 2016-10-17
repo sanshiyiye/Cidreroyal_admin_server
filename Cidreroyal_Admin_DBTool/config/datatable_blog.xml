@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table name="Blog" comment="blog信息表">
+    <column name="id" field="id" type="long" length="20" comment="唯一ID"
+            value="0" allowNull="false" unique="true" iskey="true" autoinc="true"/>
+
+    <column name="name" field="name" type="string" length="100" comment="blog名称"
+            value="" allowNull="false" unique="false"/>
+
+    <column name="fpart" field="fpart" type="string" length="255" comment="blog第一段信息"
+            value="" allowNull="true" unique="false"/>
+
+    <column name="bpart" field="bpart" type="text" length="1000" comment="blog正文"
+            value="" allowNull="true" unique="false"/>
+
+    <column name="img" field="img" type="string" length="100" comment="图片名称"
+            value="" allowNull="true" unique="false"/>
+
+</table>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table name="ItemSku" comment="商品sku信息表">
+    <column name="id" field="id" type="long" length="20" comment="唯一ID"
+            value="0" allowNull="false" unique="true" iskey="true" autoinc="true"/>
+
+    <column name="oldPrice" field="oldPrice" type="double" length="10" comment="商品原价"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="price" field="price" type="double" length="10" comment="商品现价"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="size" field="size" type="double" length="10" comment="商品尺寸"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="stock" field="stock" type="int" length="10" comment="商品库存"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="simimg" field="simimg" type="string" length="100" comment="商品缩略图"
+            value="" allowNull="false" unique="false"/>
+
+    <column name="img" field="img" type="string" length="100" comment="商品原图"
+            value="" allowNull="false" unique="false"/>
+
+    <column name="flag" field="flag" type="int" length="5" comment="当前状态(1正常 2下架)"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="default" field="default" type="int" length="5" comment="是否默认关联商品(0否，1是)"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="brandId" field="brandId" type="long" length="20" comment="关联品牌id"
+            value="0" allowNull="false" unique="false"/>
+
+    <column name="itemId" field="itemId" type="long" length="20" comment="关联商品id"
+            value="0" allowNull="false" unique="false"/>
+
+    <index name="brandId" unique="false"/>
+    <index name="itemId" unique="false"/>
+
+    <fk name="brandId" model="Brand" type="OneToMany"/>
+    <fk name="itemId" model="Item" type="OneToMany"/>
+</table>

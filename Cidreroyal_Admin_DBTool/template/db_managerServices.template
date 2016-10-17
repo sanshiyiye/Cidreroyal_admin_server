@@ -1,0 +1,10 @@
+/**
+ * 管理器实例类
+ * Created by auto tool.
+ */
+
+'use strict';
+
+{% for name in dbNames -%}
+exports.{{ name }}Manager = require(config.serverRoot + '/manager/{{ name }}Manager');
+{% endfor %}

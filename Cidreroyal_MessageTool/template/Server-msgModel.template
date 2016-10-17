@@ -1,0 +1,24 @@
+/**
+ * {{ msgBean.name }}消息
+ * Created by auto tool.
+ */
+
+'use strict';
+
+module.exports = function (data){
+  this.msgType = {{ msgBean.id }};
+  if(!_.isUndefined(data) && !_.isNull(data)){
+    {% for field in msgBean.fields -%}
+    this.{{ field.name }} = data.{{ field.name }} || {% if 'string'==field.type %}''{% else %}0{% endif %};
+    {% endfor %}
+  }
+  {% for field in msgBean.fields %}
+  this.set{{ field.name.capitalize()  }} = function({{ field.name }}){
+    this.{{ field.name }} = {{ field.name }};
+  };
+  {%- endfor %}
+
+  this.setResult = function(result) {
+    this.ret = result;
+  }
+};

@@ -1,0 +1,60 @@
+/**
+ * {{ tableBean.name }}.js
+ * Created by auto tool.
+ */
+
+'use strict';
+
+var Sequelize = require('sequelize');
+
+function db_init(sequelize) {
+  // 用户信息表
+  var {{ tableBean.name }} = sequelize.define('{{ tableBean.name.lower() }}', {
+    {% for column in tableBean.columns  %}
+      {{ column.name }}: {
+        type: Sequelize.
+        {%- if 'string' == column.type -%}
+        STRING({{ column.length }})
+        {%- elif 'int' == column.type -%}
+        INTEGER({{ column.length }})
+        {%- elif 'long' == column.type -%}
+        BIGINT({{ column.length }})
+        {%- elif 'double' == column.type -%}
+        DOUBLE({{ column.length }}, 3)
+        {%- elif 'text' == column.type -%}
+        TEXT
+        {%- endif -%},
+        allowNull: {{ column.allowNull }},
+        unique: {{ column.unique }},
+        field: "{{ column.field }}",
+        {% if not column.autoinc -%}
+        defaultValue: {% if 'text' == column.type or 'string' == column.type -%}"{{ column.value }}"{%- else -%}{{ column.value }}{%- endif %},
+        {%- endif %}
+        comment: "{{ column.comment }}",
+        {% if column.iskey -%}
+        primaryKey: {{ column.iskey }},
+        autoIncrement: {{ column.autoinc }},
+        {%- endif %}
+      },
+    {% endfor %}
+  }, {
+    freezeTableName: true,
+    timestamps: true,
+    indexes: [
+      {% for index in tableBean.indexs -%}
+      {
+        unique: {{ index.unique }},
+        fields: [{% for name in index.names %}'{{ name }}',{% endfor %}]
+      },
+      {% endfor %}
+    ],
+  });
+
+  {{ tableBean.name }}.sync();
+
+  return {{ tableBean.name }};
+}
+
+exports.{{ tableBean.name }} = function (sequelize) {
+  return db_init(sequelize);
+};

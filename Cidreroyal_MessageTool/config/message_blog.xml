@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages package="Blog">
+    <!-- 客户端获取博客信息 -->
+    <message type="CS_GETBLOGLIST" name="GetBlogList" id="10401"
+             comment="获取博客信息" auth="false">
+    </message>
+
+    <!-- 客户端获取博客信息返回返回消息 -->
+    <message type="SC_GETBLOGLIST" name="GetBlogListBack" id="10402"
+             comment="获取博客信息返回" auth="false">
+        <field name="blogList" type="list" comment="博客列表">
+            <field name="id" type="long" comment="唯一ID"></field>
+            <field name="name" type="string" comment="blog名称"></field>
+            <field name="fpart" type="string" comment="blog第一段信息"></field>
+            <field name="bpart" type="string" comment="blog正文"></field>
+            <field name="img" type="string" comment="图片名称"></field>
+        </field>
+    </message>
+</messages>

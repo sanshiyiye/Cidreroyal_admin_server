@@ -1,0 +1,38 @@
+/**
+ * 数据库模块service类
+ * Created by auto tool.
+ */
+
+'use strict';
+
+{% for tableBean in tableBeans -%}
+var {{ tableBean.name.lower() }} = require(config.serverRoot + "/model/{{ tableBean.name }}");
+{% endfor %}
+
+
+// 数据库model绑定映射
+module.exports = function (sequelize, serverSequelize) {
+  var dbModels = {
+    {% for tableBean in tableBeans -%}
+    {% if tableBean.isAdmin -%}
+    {{ tableBean.name }}: {{ tableBean.name.lower() }}.{{ tableBean.name }}(sequelize),
+    {%- else -%}
+    {{ tableBean.name }}: {{ tableBean.name.lower() }}.{{ tableBean.name }}(serverSequelize),
+    {%- endif %}
+    {% endfor %}
+  };
+
+  // 关联关系
+  {%- for tableBean in tableBeans -%}
+  {% for fk in tableBean.fks -%}
+  {% if fk.type == "OneToOne" -%}
+  dbModels.{{ fk.model }}.hasOne(dbModels.{{ tableBean.name }}, {foreignKey: '{{ fk.name }}', constraints: false});
+  {%- elif fk.type == "OneToMany" %}
+  dbModels.{{ fk.model }}.hasMany(dbModels.{{ tableBean.name }}, {foreignKey: '{{ fk.name }}', constraints: false});
+  {%- endif %}
+  dbModels.{{ tableBean.name }}.belongsTo(dbModels.{{ fk.model }}, {foreignKey: '{{ fk.name }}', constraints: false});
+  {% endfor %}
+  {%- endfor %}
+
+  return dbModels;
+};
